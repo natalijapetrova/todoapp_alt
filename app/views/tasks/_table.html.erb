@@ -1,6 +1,7 @@
 <table class="table  table-hover">
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Deadline</th>
       
@@ -13,6 +14,11 @@
   <tbody>
     <% tasks.each do |task| %>
       <tr>
+        <td>
+  <%= form_for task do |f| %>
+    <%= f.check_box :done, class: "checkable" %>
+  <% end %>
+</td>
         <td class="<%= css_class %>"><%= link_to task.name, edit_task_path(task) %></td>
         <td><%= task.deadline %></td>
         
